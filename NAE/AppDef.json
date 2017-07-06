@@ -1,0 +1,50 @@
+{
+    "name": "Transfer Learning",
+    "description": "Transfer Learning Demo.",
+    "author": "IBM, Inc.",
+    "licensed": true,
+    "classifications": [
+        "Machine Learning/Deep Learning",
+        "Machine Learning/Artificial Intelligence",
+        "Data Science",
+        "IBM POWER/Machine Learning/Deep Learning",
+        "IBM POWER/Machine Learning/Artificial Intelligence",
+        "IBM POWER/Data Science"
+    ],
+    "machines": [
+        "np8g1"
+    ],
+    "vault-types": [
+        "NONE"
+    ],
+    "commands": {
+        "Start": {
+            "path": "/usr/local/scripts/sample_notebook.sh",
+            "interactive": true,
+            "name": "Start",
+            "description": "Launch a Jupyter Notebook to run the Transfer Learning demo directly in your browser.",
+            "parameters": {
+                "-s": {
+                    "name": "-s",
+                    "description": "-s",
+                    "type": "CONST",
+                    "value": "/opt/DL/tensorflow/bin/tensorflow-activate",
+                    "positional": false,
+                    "required": true
+                },
+                "-r": {
+                    "name": "Requirements file",
+                    "description": "Select a text file to use as a list of pip requirements (e.g. requirements.txt)",
+                    "type": "FILE",
+                    "positional": false,
+                    "required": false,
+                    "filter": "*.txt"
+                }
+            }
+        }
+    },
+    "image": {
+        "type": "image/png",
+        "data": ""
+    }
+}
