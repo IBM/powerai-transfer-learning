@@ -9,6 +9,8 @@ import struct
 import tarfile
 import hashlib
 import numpy as np
+from PIL import Image
+from resizeimage import resizeimage
 from six.moves import urllib
 
 import tensorflow as tf
@@ -51,11 +53,38 @@ JPEG_DATA_TENSOR_NAME = 'DecodeJpeg/contents:0'
 RESIZED_INPUT_TENSOR_NAME = 'ResizeBilinear:0'
 MAX_NUM_IMAGES_PER_CLASS = 2 ** 27 - 1  # ~134M
 
+JPEG_EXTENSIONS = ('.jpeg', '.JPEG', '.jpg', '.JPG')
+
 
 #
 # end of redundant constants
 #
 
+
+def resize_images(src_dir, dest_dir):
+
+    if not os.path.isdir(src_dir):
+        raise Exception(src_dir + " is not a directory")
+    if not os.path.exists(dest_dir):
+        os.mkdir(dest_dir)
+
+    raw_images = {image for image in os.listdir(src_dir) if image.endswith(
+        JPEG_EXTENSIONS)}
+    dest_images = {image for image in os.listdir(dest_dir)}
+
+    # Resize the ones that are not already in the dest dir
+    for image in raw_images - dest_images:
+        print("Resizing " + image)
+        resize_image(image, src_dir, dest_dir)
+
+
+def resize_image(image_file, src_dir, dest_dir):
+    in_file = os.path.join(src_dir, image_file)
+    with open(in_file, 'r+b') as fd_img:
+        with Image.open(fd_img) as img:
+            resized_image = resizeimage.resize_contain(
+                img, [299, 299]).convert("RGB")
+            resized_image.save(os.path.join(dest_dir, image_file), img.format)
 
 
 def create_image_lists(image_dir, testing_percentage, validation_percentage):
