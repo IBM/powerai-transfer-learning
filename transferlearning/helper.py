@@ -1,6 +1,15 @@
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at
 #
-# begin of redundant constants
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+# License for the specific language governing permissions and limitations
+# under the License.
+
 import os
 import sys
 import random
@@ -14,51 +23,23 @@ from resizeimage import resizeimage
 from six.moves import urllib
 
 import tensorflow as tf
-# from tensorflow.python.framework import graph_util
 from tensorflow.python.framework import tensor_shape
 from tensorflow.python.platform import gfile
 from tensorflow.python.util import compat
 
-image_dir = os.path.join("House-Pool")
-output_graph = "output_graph.pb"
-output_labels = "output_labels.txt"
-output_graph_orig = "output_graph_orig.pb"
-summaries_dir = "/tmp/output_labels.txt"
-# how_many_training_steps = 500
-how_many_training_steps = 500
 learning_rate = 0.01
-testing_percentage = 10
-validation_percentage = 10
-eval_step_interval = 10
-train_batch_size = 100
-test_batch_size = -1
-validation_batch_size = 100
-print_misclassified_test_images = False
-model_dir = os.path.join('inception')
-bottleneck_dir = "bottlenecks"
-final_tensor_name = "final_result"
-flip_left_right = False
-random_crop = 0
-random_scale = 0
-random_brightness = 0
-DATA_URL = 'http://download.tensorflow.org/models/image/imagenet/inception-2015-12-05.tgz'
 
-# pylint: enable=line-too-long
 BOTTLENECK_TENSOR_NAME = 'pool_3/_reshape:0'
 BOTTLENECK_TENSOR_SIZE = 2048
 MODEL_INPUT_WIDTH = 299
 MODEL_INPUT_HEIGHT = 299
 MODEL_INPUT_DEPTH = 3
+
 JPEG_DATA_TENSOR_NAME = 'DecodeJpeg/contents:0'
 RESIZED_INPUT_TENSOR_NAME = 'ResizeBilinear:0'
 MAX_NUM_IMAGES_PER_CLASS = 2 ** 27 - 1  # ~134M
 
 JPEG_EXTENSIONS = ('.jpeg', '.JPEG', '.jpg', '.JPG')
-
-
-#
-# end of redundant constants
-#
 
 
 def resize_images(src_dir, dest_dir):
@@ -87,12 +68,13 @@ def resize_image(image_file, src_dir, dest_dir):
             resized_image.save(os.path.join(dest_dir, image_file), img.format)
 
 
-def create_image_lists(image_dir, testing_percentage, validation_percentage):
+def create_image_lists(image_dir, bottlenecks_dir, testing_percentage, validation_percentage):
     if not gfile.Exists(image_dir):
         print("Image directory '" + image_dir + "' not found.")
         return None
     result = {}
     sub_dirs = [x[0] for x in gfile.Walk(image_dir)]
+
     # The root directory comes first, so skip it.
     is_root_dir = True
     for sub_dir in sub_dirs:
@@ -108,6 +90,13 @@ def create_image_lists(image_dir, testing_percentage, validation_percentage):
         for extension in extensions:
             file_glob = os.path.join(image_dir, dir_name, '*.' + extension)
             file_list.extend(gfile.Glob(file_glob))
+
+        # Add the already cached bottleneck files
+        bottleneck_glob = os.path.join(bottlenecks_dir, dir_name, '*.txt')
+        bottlenecks = gfile.Glob(bottleneck_glob)
+        for bottleneck in bottlenecks:
+            file_list.append(bottleneck[:-4])  # strip the .txt
+
         if not file_list:
             print('No files found')
             continue
@@ -124,12 +113,6 @@ def create_image_lists(image_dir, testing_percentage, validation_percentage):
         validation_images = []
         for file_name in file_list:
             base_name = os.path.basename(file_name)
-            # We want to ignore anything after '_nohash_' in the file name when
-            # deciding which set to put an image in, the data set creator has a way of
-            # grouping photos that are close variations of each other. For example
-            # this is used in the plant disease data set to group multiple pictures of
-            # the same leaf.
-            hash_name = re.sub(r'_nohash_.*$', '', file_name)
             # This looks a bit magical, but we need to decide whether this file should
             # go into the training, testing, or validation sets, and we want to keep
             # existing files in the same set even if more files are subsequently
@@ -137,15 +120,14 @@ def create_image_lists(image_dir, testing_percentage, validation_percentage):
             # To do that, we need a stable way of deciding based on just the file name
             # itself, so we do a hash of that and then use that to generate a
             # probability value that we use to assign it.
-            hash_name_hashed = hashlib.sha1(
-                compat.as_bytes(hash_name)).hexdigest()
-            percentage_hash = ((int(hash_name_hashed, 16) %
+            file_name_hashed = hashlib.sha1(
+                compat.as_bytes(file_name)).hexdigest()
+            percentage_hash = ((int(file_name_hashed, 16) %
                                 (MAX_NUM_IMAGES_PER_CLASS + 1)) *
                                (100.0 / MAX_NUM_IMAGES_PER_CLASS))
             if percentage_hash < validation_percentage:
                 validation_images.append(base_name)
-            elif percentage_hash < (
-                testing_percentage + validation_percentage):
+            elif percentage_hash < testing_percentage + validation_percentage:
                 testing_images.append(base_name)
             else:
                 training_images.append(base_name)
@@ -181,7 +163,7 @@ def get_bottleneck_path(image_lists, label_name, index, bottleneck_dir,
                           category) + '.txt'
 
 
-def create_inception_graph():
+def create_inception_graph(model_dir):
     with tf.Session() as sess:
         model_filename = os.path.join(
             model_dir, 'classify_image_graph_def.pb')
@@ -204,12 +186,11 @@ def run_bottleneck_on_image(sess, image_data, image_data_tensor,
     return bottleneck_values
 
 
-def maybe_download_and_extract():
-    dest_directory = model_dir
-    if not os.path.exists(dest_directory):
-        os.makedirs(dest_directory)
-    filename = DATA_URL.split('/')[-1]
-    filepath = os.path.join(dest_directory, filename)
+def maybe_download_and_extract(url, model_dir):
+    if not os.path.exists(model_dir):
+        os.makedirs(model_dir)
+    filename = url.split('/')[-1]
+    filepath = os.path.join(model_dir, filename)
     if not os.path.exists(filepath):
         def _progress(count, block_size, total_size):
             sys.stdout.write('\r>> Downloading %s %.1f%%' %
@@ -218,13 +199,13 @@ def maybe_download_and_extract():
                                   total_size) * 100.0))
             sys.stdout.flush()
 
-        filepath, _ = urllib.request.urlretrieve(DATA_URL,
+        filepath, _ = urllib.request.urlretrieve(url,
                                                  filepath,
                                                  _progress)
         print()
         statinfo = os.stat(filepath)
         print('Successfully downloaded', filename, statinfo.st_size, 'bytes.')
-    tarfile.open(filepath, 'r:gz').extractall(dest_directory)
+    tarfile.open(filepath, 'r:gz').extractall(model_dir)
 
 
 def ensure_dir_exists(dir_name):
@@ -242,9 +223,6 @@ def read_list_of_floats_from_file(file_path):
     with open(file_path, 'rb') as f:
         s = struct.unpack('d' * BOTTLENECK_TENSOR_SIZE, f.read())
         return list(s)
-
-
-bottleneck_path_2_bottleneck_values = {}
 
 
 def create_bottleneck_file(bottleneck_path, image_lists, label_name, index,
@@ -279,14 +257,11 @@ def get_or_create_bottleneck(sess, image_lists, label_name, index, image_dir,
                                bottleneck_tensor)
     with open(bottleneck_path, 'r') as bottleneck_file:
         bottleneck_string = bottleneck_file.read()
-    did_hit_error = False
     try:
         bottleneck_values = [float(x) for x in bottleneck_string.split(',')]
-    except:
+    except Exception as e:
+        print(e.__repr__)
         print("Invalid float found, recreating bottleneck")
-        did_hit_error = True
-    if did_hit_error:
-
         create_bottleneck_file(bottleneck_path, image_lists, label_name, index,
                                image_dir, category, sess, jpeg_data_tensor,
                                bottleneck_tensor)
@@ -294,6 +269,7 @@ def get_or_create_bottleneck(sess, image_lists, label_name, index, image_dir,
             bottleneck_string = bottleneck_file.read()
         # Allow exceptions to propagate here, since they shouldn't happen after a fresh creation
         bottleneck_values = [float(x) for x in bottleneck_string.split(',')]
+
     return bottleneck_values
 
 
@@ -311,8 +287,7 @@ def cache_bottlenecks(sess, image_lists, image_dir, bottleneck_dir,
 
                 how_many_bottlenecks += 1
                 if how_many_bottlenecks % 100 == 0:
-                    print(
-                    str(how_many_bottlenecks) + ' bottleneck files created.')
+                    print('%s bottleneck files cached.' % how_many_bottlenecks)
 
 
 def get_random_cached_bottlenecks(sess, image_lists, how_many, category,
