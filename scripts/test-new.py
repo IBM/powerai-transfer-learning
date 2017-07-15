@@ -61,12 +61,11 @@ with tf.Session() as sess:
     predictions = sess.run(softmax_tensor, \
              {'DecodeJpeg/contents:0': image_data})
     
-    # Sort to show labels of first prediction in order of confidence
-    top_k = predictions[0].argsort()[-len(predictions[0]):][::-1]
-    
-    for node_id in top_k:
-        human_string = label_lines[node_id]
-	human_string = human_string.replace("pool", "house + pool")
-        score = predictions[0][node_id]
-        print('%s (score = %.5f)' % (human_string, score))
+    label0 = label_lines[0]
+    label1 = label_lines[1]
+    score0 = predictions[0][0]
+    score1 = predictions[0][1]
+    print('%s (score=%.5f)  %s (score=%.5f)' % (
+        label0, score0, label1, score1))
+
 os.remove(outfile)
