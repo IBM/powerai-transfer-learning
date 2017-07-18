@@ -68,7 +68,7 @@ for logging into Nimbix:
 
 ![](doc/source/images/nimbix-registration-complete.png)
 
-* Click the [link](https://mc.jarvice?page=compute&team) to take you to
+* Click the [link](https://mc.jarvice.com?page=compute&team) to take you to
 the Nimbix login page:
 
 ![](doc/source/images/nimbix-login.png)
