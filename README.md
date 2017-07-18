@@ -34,7 +34,7 @@ described in detail below.
 5. [Run the notebook](#5-run-the-notebook)
 6. [Analyze the results](#6-analyze-the-results)
 7. [Save and share](#7-save-and-share)
-8. [Shut down the TensorFlow Demo](#8-shut-down-the-tensorflow-demo)
+8. [Shut down the PowerAI Notebooks job](#8-shut-down-the-powerai-notebooks-job)
 
 ## 1. Register for a Trial Nimbix Cloud Platform account
 
