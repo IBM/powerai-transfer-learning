@@ -107,7 +107,7 @@ click the ``Submit`` button:
 
 ![](doc/source/images/tensor-flow-demo-config.png)
 
-> *NOTE:* Ignore the "$0.13/hr" charge listed. With your trial account you receive 10 hours of free processing time.
+> *NOTE:* Ignore the $/hr charge listed. With your trial account you receive 10 hours of free processing time.
 
 * Once started, the following ``Dashboard`` panel will be displayed. When
 the server ``Status`` turns to ``Processing``, the server is ready to be
