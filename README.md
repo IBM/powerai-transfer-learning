@@ -169,6 +169,21 @@ There are several ways to execute the code cells in your notebook:
 
 ## 6. Analyze the results
 
+When you run the "Main" code cell you can watch the training as the accuracy
+quickly improves. At the end, the final test accuracy is shown. We usually see
+somewhere around 85% accuracy with these images.
+
+![](doc/source/images/training-results.png)
+
+We captured the model before and after the training. Look at our example
+images at the bottom of the notebook and see our before and after results.
+
+![](doc/source/images/before-and-after.png)
+
+The results should go from no recognition ability at all to a pretty good
+success rate. You might find it interesting to try different images and see
+if you can identify why it has more difficulty classifying some images.
+
 ## 7. Save and share
 
 ### How to save your work:
