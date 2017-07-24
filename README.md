@@ -22,6 +22,10 @@ We will use this pre-trained model and re-train it it to classify houses with or
 * [Jupyter Notebooks](http://jupyter.org/): An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
 * [Tensorflow](https://www.tensorflow.org/): An open source software library for numerical computation using data flow graphs.
 
+# Watch the Video
+
+[![](http://img.youtube.com/vi/S3jdmKrERrE/0.jpg)](https://www.youtube.com/watch?v=S3jdmKrERrE)
+
 # Steps
 
 Follow these steps to setup and run this developer journey. The steps are
