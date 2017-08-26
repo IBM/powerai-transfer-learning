@@ -84,7 +84,7 @@ Nimbix에 로그인하면 PowerAI 노트북 응용 프로그램을 배포하십�
 
 ![](doc/source/images/nimbix-search-page-demo.png)
 
-* ``PowerAI Notebooks` 어플리케이션 패널에서, ``TensorFlow``를 클릭합니다.:
+* ``PowerAI Notebooks`` 어플리케이션 패널에서, ``TensorFlow``를 클릭합니다.:
 
 ![](doc/source/images/tensor-flow-demo-launch.png)
 
