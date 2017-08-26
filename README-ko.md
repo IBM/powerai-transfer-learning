@@ -1,32 +1,30 @@
-# Image recognition training with TensorFlow Inception and transfer learning
+# TensorFlow Inception 및 전이 학습을 사용한 이미지 인식 학습
 
-Transfer learning is the process of taking a pre-trained model (the weights and parameters of a network that has been trained on a large dataset by somebody else) and “fine-tuning” the model with your own dataset. The idea is that this pre-trained model will act as a feature extractor. You will remove the last layer of the network and replace it with your own classifier (depending on what your problem space is). You then freeze the weights of all the other layers and train the network normally (Freezing the layers means not changing the weights during gradient descent/optimization).
-For this experiment we used Google's Inception-V3 pretrained model for Image Classification. This model consists of two parts:
-- Feature extraction part with a convolutional neural network.
-- Classification part with fully-connected and softmax layers.
+전이 학습(transfer learning)은 사전에 훈련 된 모델 (다른 사람에 의해 이미 대규모 데이터 세트를 기반으로 한 학습을 통해 도출된 네트워크의 가중치 및 변수)에, 자신의 데이터 세트로 모델을 미세 조정하는 프로세스입니다. 동작 방식은 사전 훈련 된 모델이 특징을 추출 (feature extraction)하는 역할을 한다는 것입니다. 네트워크의 마지막 레이어를 제거하고 (문제 공간의 성격에 따라) 본인의 분류기로 바꿉니다. (경사 하강법 (gradient descent) 최적화 과정 동안 가중치를 변경하지 않음으로써) 다른 모든 계층의 가중치를 고정하고 네트워크를 학습합니다. 본 예제에서는, 이미지 분류를 위해 사전 학습된 Inception-v3 모델을 사용했습니다. 이 모델은 두 부분으로 구성됩니다.:
+- 컨볼루션 신경망을 활용한 특징 추출
+- 완전 연결 (fully connected)레이어와 소프트맥스(softmax) 레이어로 분류
 
-The pre-trained Inception-v3 model achieves state-of-the-art accuracy for recognizing general objects with 1000 classes. The model extracts general features from input images in the first part and classifies them based on those features in the second part.
-We will use this pre-trained model and re-train it it to classify houses with or without swimming pools.
+사전 학습된 Inception-v3 모델은 1,000 개의 클래스로 일반 객체를 인식 할 수 있는 최첨단 정확도를 제공합니다. 모델은 우선 입력 이미지로 부터 특징을 추출하고 그러한 특징을 기반으로 분류합니다. 우리는 이 사전 학습된 모델을 기반으로 하여 수영장이 딸린 주택과, 그렇지 않은 주택을 분류하기 위한 추가 학습을 합니다.
 
 
 ![](doc/source/images/architecture.png)
 
-## Included components
+## 구성 요소
 
-* [IBM Power AI](https://www.ibm.com/ms-en/marketplace/deep-learning-platform): A software platform that includes the most popular machine learning frameworks with IBM Power Systems.
-* [IBM Power Systems](https://www-03.ibm.com/systems/power/): IBM Power Systems is IBM's Power Architecture-based server line, built with open technologies and designed for mission-critical applications.
-* [Nimbix Cloud Computing Platform](https://www.nimbix.net/): An HPC & Cloud Supercomputing platform enabling engineers, scientists & developers, to build, compute, analyze, and scale simulations in the cloud
+* [IBM Power AI](https://www.ibm.com/ms-en/marketplace/deep-learning-platform): 가장 많이 사용되는 기계 학습 프레임 워크가 포함된 IBM Power Systems 기반 소프트웨어 플랫폼
+* [IBM Power Systems](https://www-03.ibm.com/systems/power/): 오픈 기술 기반의 mission-critical 업무용으로 설계된 IBM의 Power Architecture 기반 서버군
+* [Nimbix Cloud Computing Platform](https://www.nimbix.net/): 엔지니어, 과학자 및 개발자가 클라우드 상에서 대규모 시뮬레이션을 작성, 계산 및 분석 할 수 있는 HPC 및 클라우드 슈퍼 컴퓨팅 플랫폼
 
-## Featured technologies
+## 주요 기술
 
-* [Jupyter Notebooks](http://jupyter.org/): An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
-* [Tensorflow](https://www.tensorflow.org/): An open source software library for numerical computation using data flow graphs.
+* [Jupyter Notebooks](http://jupyter.org/): 라이브 코드, 방정식, 시각화 내용 및 설명 텍스트가 포함 된 문서를 만들고 공유 할 수 있는 오픈 소스 웹 응용 프로그램
+* [Tensorflow](https://www.tensorflow.org/): 데이터 흐름 그래프를 사용한 수치 계산을 위한 오픈 소스 소프트웨어 라이브러리
 
-# Watch the Video
+# 비디오 보기
 
 [![](http://img.youtube.com/vi/S3jdmKrERrE/0.jpg)](https://www.youtube.com/watch?v=S3jdmKrERrE)
 
-# Steps
+# 단계
 
 Follow these steps to setup and run this developer journey. The steps are
 described in detail below.
@@ -209,10 +207,10 @@ the free trial registration only provides 10 hours of compute time.
 * From the Nimbix ``Dashboard:Current Jobs`` view, click on the
 ``Shutdown`` button and confirm.
 
-# Troubleshooting
+# 문제 해결
 
 [See DEBUGGING.md.](DEBUGGING.md)
 
-# License
+# 라이센스
 
 [Apache 2.0](LICENSE)
