@@ -26,114 +26,94 @@
 
 # 단계
 
-Follow these steps to setup and run this developer journey. The steps are
-described in detail below.
+이 개발자 과정을 따라 하시려면 다음 단계를 따르십시오. 단계는 아래에서 자세히 설명합니다.
 
-1. [Register for a Trial Nimbix Cloud Platform account](#1-register-for-a-trial-nimbix-cloud-platform-account)
-2. [Navigating the Nimbix UI](#2-navigating-the-nimbix-ui)
-3. [Deploy and run the PowerAI Notebooks application](#3-deploy-and-run-the-powerai-notebooks-application)
-4. [Access and start the Jupyter notebook](#4-access-and-start-the-jupyter-notebook)
-5. [Run the notebook](#5-run-the-notebook)
-6. [Analyze the results](#6-analyze-the-results)
-7. [Save and share](#7-save-and-share)
-8. [Shut down the PowerAI Notebooks job](#8-shut-down-the-powerai-notebooks-job)
+1. [Nimbix Cloud Platform 평가판 계정 등록](#1-nimbix-cloud-platform-평가판-계정-등록)
+2. [Nimbix UI 탐색](#2-nimbix-ui-탐색)
+3. [PowerAI 노트북 응용 프로그램 배포 및 실행](#3-powerai-노트북-응용-프로그램-배포-및-실행)
+4. [Jupyter 노트북 액세스 및 시작](#4-jupyter-노트북-액세스-및-시작)
+5. [노트북 실행](#5-노트북-실행)
+6. [결과 분석](#6-결과-분석)
+7. [저장 및 공유](#7-저장-및-공유)
+8. [PowerAI 노트북 작업 종료](#8-powerai-노트북-작업-종료)
 
-## 1. Register for a Trial Nimbix Cloud Platform account
+## 1. Nimbix Cloud Platform 평가판 계정 등록
 
-IBM has partnered with Nimbix to provide journey developers a trial
-account that provides 10 hours of free processing time on the PowerAI
-platform.
+IBM은 Nimbix와 제휴하여 PowerAI 플랫폼에서 10 시간의 무료 처리 시간을 제공하는 평가판 계정을 제공합니다.
 
-The registration process is as follows:
+등록 절차는 다음과 같습니다.:
 
-* Go to the [IBM Cognitive Journey Demo Registration Page](https://www.nimbix.net/cognitive-journey)
-and submit the form to initiate the registration process.
+* [IBM Cognitive Journey Demo Registration Page](https://www.nimbix.net/cognitive-journey)로 이동하여 양식을 제출하여 등록 프로세스를 시작하십시오.
 
 ![](doc/source/images/nimbix-registration.png)
 
-* Wait for a confirmation email. Note that this process is not automated so
-it may take up to 24 hours to be reviewed and approved.
-* Once you receive the email, you will have 24 hours to complete the process
-by clicking on the provided link:
+* 등록 확인 이메일을 기다립니다. 이 프로세스는 자동화되어 있지 않으므로 검토하고 승인하는 데 최대 24 시간이 걸릴 수 있습니다.
+* 이메일을 받으면 제공된 링크를 24시간 이내에 클릭하여 다음의 과정을 마칩니다.
 
 ![](doc/source/images/nimbix-confirmation-1.png)
 
-* The above link will take you to this page where you need to create and
-confirm your account password:
+* 위의 링크를 클릭하면 계정 비밀번호를 만들고 확인하는 페이지로 이동합니다.:
 
 ![](doc/source/images/nimbix-set-password.png)
 
-> *NOTE:* A "Promotional Code" is not required.
+> *NOTE:* 프로모션 코드"는 필요하지 않습니다.
 
-* Wait for a confirmation email that will will provide instructions
-for logging into Nimbix:
+* Nimbix에 로그인하는 방법을 알려주는 확인 이메일을 기다립니다.:
 
 ![](doc/source/images/nimbix-registration-complete.png)
 
-* Click the [link](https://mc.jarvice.com?page=compute&team) to take you to
-the Nimbix login page:
+* [link](https://mc.jarvice.com?page=compute&team)를 클릭하면 Nimbix 로그인 페이지로 이동합니다.:
 
 ![](doc/source/images/nimbix-login.png)
 
-## 2. Navigating the Nimbix UI
+## 2. Nimbix UI 탐색
 
-The Nimbix UI has two main controls located at the top of the panel.
+Nimbix UI에는 패널 맨 위에 두 개의 기본 컨트롤이 있습니다.
 
 ![](doc/source/images/nimbix-navigation.png)
 
-* Click on ``NIBMIX`` to display a drop-down list of available modes. Click
-again to hide the list. In the example view above, we have selected
-the ``Dashboard`` mode.
+* 사용 가능한 모드의 드롭 다운 목록을 표시 하려면 ``NIBMIX``를 클릭하십시오. 목록을 숨기려면 다시 클릭하십시오. 위의 예제보기에서는 ``Dashboard``  모드를 선택했습니다.
 
-* On the left-side, click on the ``collapsible`` icon to display a
-drop-down list of views that are associated with the selected mode.
-Click on the icon again to hide the list. In the example above, we have
-selected the ``Current Jobs`` dashboard view.
+* 왼쪽에서 ``collapsible`` 아이콘을 클릭 하면 선택한 모드와 관련된 보기의 드롭 다운 목록이 표시됩니다. 목록을 숨기려면 아이콘을 다시 클릭하십시오. 위의 예에서는 ``Current Jobs`` 대시 보드 보기를 선택했습니다.
 
-## 3. Deploy and run the PowerAI Notebooks application
+## 3. PowerAI 노트북 응용 프로그램 배포 및 실행
 
-Once signed into Nimbix, deploy the PowerAI Notebooks application.
+Nimbix에 로그인하면 PowerAI 노트북 응용 프로그램을 배포하십시오.
 
-* Search for and select the ``PowerAI Notebooks`` application in the list
-of available apps in the ``Compute:All Applications`` view.
+* ``Compute:All Applications`` 메뉴의 사용 가능한 앱 목록 에서 ``PowerAI Notebooks`` 애플리케이션을 검색하고 선택하십시오.
 
 ![](doc/source/images/nimbix-search-page-demo.png)
 
-* From the ``PowerAI Notebooks`` application panel, click the
-``TensorFlow`` button:
+* ``PowerAI Notebooks` 어플리케이션 패널에서, ``TensorFlow``를 클릭합니다.:
 
 ![](doc/source/images/tensor-flow-demo-launch.png)
 
-* From the ``TensorFlow`` configuration panel, accept all default values and
-click the ``Submit`` button:
+* ``TensorFlow``구성 패널에서, 모든 기본 값을 적용하고 ``Submit``버튼을 클릭 합니다:
 
 ![](doc/source/images/tensor-flow-demo-config.png)
 
-> *NOTE:* Ignore the $/hr charge listed. With your trial account you receive 10 hours of free processing time.
+> *NOTE:* 나열된 $/시간당 요금은 무시하십시오. 평가판 계정에 10 시간의 무료 처리 시간이 부여됩니다.
 
-* Once started, the following ``Dashboard`` panel will be displayed. When
-the server ``Status`` turns to ``Processing``, the server is ready to be
-accessed.
+* 시작되면 다음 ``Dashboard` 패널이 표시됩니다. 서버 ``Status`가 ``Processing`로 바뀌면 서버에 액세스 할 수 있습니다.
+    ``(click to show)``를 클릭하여 암호를 확인합니다.
 
-    Click on ``(click to show)`` to get the password.
-
-* Click ``Click here to connect`` to launch web access to the notebooks.
+* ``Click here to connect`` 를 클릭하면 웹을 통하여 노트북에 접속하게 됩니다.
 
 ![](doc/source/images/tensor-flow-demo-click.png)
 
-* Log-in using the user name ``nimbix`` and the previously supplied password.
+* 사용자 이름 nimbix와 이전에 제공된 암호를 사용하여 로그인하십시오.
 
 ![](doc/source/images/tensor-flow-demo-login.png)
 
-## 4. Access and start the Jupyter notebook
+## 4. Jupyter 노트북 액세스 및 시작
 
-Use git clone to download the example notebook, dataset, and retraining library with a single command.
+git clone을 사용하면 단일 명령으로 예제 노트북, 데이터 세트 및 학습 라이브러리를 다운로드 할 수 있습니다.
 
-* Get a new terminal window by clicking on the ```New``` pull-down and selecting ``Terminal``.
+* ```New``` 풀다운 메뉴에서 ``Terminal``을 선택 하여 새 터미널 창을 엽니다.
 
 ![](doc/source/images/powerai-notebook-terminal.png)
 
-* Run the following command to clone the git repo:
+* git repo를 복제하려면 다음 명령을 실행하십시오.:
 
 ```commandline
 git clone https://github.com/IBM/powerai-transfer-learning
@@ -141,71 +121,56 @@ git clone https://github.com/IBM/powerai-transfer-learning
 
 ![](doc/source/images/powerai-notebook-clone.png)
 
-* Once done, you can exit the terminal and return to the notebook browser. Use the ``Files`` tab and click on ``powerai-transfer-learning`` then ``notebooks`` and then ``Classifying-House-And-Pool-Images.ipynb`` to open the notebook.
-
+* 완료되면 터미널을 종료하고 노트북 브라우저로 돌아갈 수 있습니다. ``Files`` 탭에서 클릭 ``powerai-transfer-learning``, ``notebooks``,  ``Classifying-House-And-Pool-Images.ipynb``를 선택하여 노트북을 엽니다.
 ![](doc/source/images/powerai-notebook-open.png)
 
-## 5. Run the notebook
+## 5. 노트북 실행
 
-When a notebook is executed, what is actually happening is that each code cell in
-the notebook is executed, in order, from top to bottom.
+노트가 실행될 때 실제로 일어나는 것은 노트의 각 코드 셀이 위에서 아래로 순서대로 실행된다는 것입니다.
 
-Each code cell is selectable and is preceded by a tag in the left margin. The tag
-format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
+각 코드 셀은 선택 가능하며 왼쪽 부분에 태그가 붙습니다. 태그 형식은 `In [x]:` 입니다. 노트북의 상태에 따라 `x` 값은 다음과 같습니다.:
 
-* A blank, this indicates that the cell has never been executed.
-* A number, this number represents the relative order this code step was executed.
-* A `*`, this indicates that the cell is currently executing.
+* 공백: 셀이 한 번도 실행되지 않았음을 나타냅니다.
+* 숫자: 해당 셀이 실행된 상대적인 순서를 나타냅니다.
+* `*`: 셀이 현재 실행 중임을 나타냅니다.
 
-There are several ways to execute the code cells in your notebook:
+노트북에서 코드 셀을 실행하는 데는 여러 가지 방법이 있습니다.:
 
-* One cell at a time.
-  * Select the cell, and then press the `Play` button in the toolbar.
-* Batch mode, in sequential order.
-  * From the `Cell` menu bar, there are several options available. For example, you
-    can `Run All` cells in your notebook, or you can `Run All Below`, that will
-    start executing from the first cell under the currently selected cell, and then
-    continue executing all cells that follow.
+* 한 번에 하나의 셀 실행.
+  * 셀을 선택한 다음 툴바에서 `Play` 버튼을 누릅니다.
+* 배치모드: 순서대로 실행.
+  * `Cell` 메뉴 모음에 사용할 수 있는 몇 가지 옵션이 있습니다. 예를 들어, `Run All`을 통해 모든 셀을 모두 실행하거나, `Run All Below`을 통해 현재 셀 바로 아래 셀로 부터 가장 아래 마지막까지 계속 실행할 수 있습니다.
 
 ![](doc/source/images/powerai-notebook-run.png)
 
-## 6. Analyze the results
+## 6. 결과 분석
 
-When you run the "Main" code cell you can watch the training as the accuracy
-quickly improves. At the end, the final test accuracy is shown. We usually see
-somewhere around 85% accuracy with these images.
+"Main" 코드 셀을 실행하면 정확도가 빠르게 향상되는 학습 과정을 볼 수 있습니다. 마지막에는 최종 테스트 정확도가 표시되며, 통상 이 이미지들로 약 85 % 정도의 정확도를 보입니다.
 
 ![](doc/source/images/training-results.png)
 
-We captured the model before and after the training. Look at our example
-images at the bottom of the notebook and see our before and after results.
+우리는 학습 전과 후의 모델을 저장 하였는데, 노트북 하단의 예제 이미지에서 전후 결과를 비교해 보십시오.
 
 ![](doc/source/images/before-and-after.png)
 
-The results should go from no recognition ability at all to a pretty good
-success rate. You might find it interesting to try different images and see
-if you can identify why it has more difficulty classifying some images.
+결과를 보게 되면 전혀 구분을 못하는 상태에서 꽤 좋은 성공률로 진화 되었음을 확인할 수있습니다. 다른 이미지를 시도해보거나, 어떤 이미지들이 분류하는데 어려운지 알아 보는 것도 재미있을 수 있습니다.
 
-## 7. Save and share
+## 7. 저장 및 공유
 
-### How to save your work:
+### 작업 저장 방법:
 
-Because this notebook is running temporarily on a Nimbix
-Cloud server, use the following options to save your work:
+이 노트북은 Nimbix Cloud 서버에서 임시적으로 제공되는 환경으로 다음 옵션을 사용하여 작업을 저장하십시오.:
 
-Under the `File` menu, there are options to:
+`File` 메뉴 아래에 다음과 같은 옵션이 있습니다.:
 
-* `Download as...` will download the notebook to your local system.
-* `Print Preview` will allow you to print the current state of the
-  notebook.
+* `Download as...` 로컬 시스템에 노트북을 다운로드합니다.
+* `Print Preview` 노트북의 현재 상태를 인쇄 할 수 있습니다.
 
-## 8. Shut down the PowerAI Notebooks job
+## 8. PowerAI 노트북 작업 종료
 
-Remember to shutdown the server to free up resources on the Nimbix Cloud Platform. Also, remember that
-the free trial registration only provides 10 hours of compute time.
+Nimbix Cloud Platform에서 리소스를 확보 하려면 서버를 종료해야합니다. 또한 무료 평가판 계정은 10 시간의 계산 시간만을 제공합니다.
 
-* From the Nimbix ``Dashboard:Current Jobs`` view, click on the
-``Shutdown`` button and confirm.
+* Nimbix ``Dashboard:Current Jobs`` 보기에서, ``Shutdown`` 버튼을 클릭하고 확인 합니다.
 
 # 문제 해결
 
