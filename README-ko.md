@@ -137,9 +137,9 @@ git clone https://github.com/IBM/powerai-transfer-learning
 노트북에서 코드 셀을 실행하는 데는 여러 가지 방법이 있습니다.:
 
 * 한 번에 하나의 셀 실행.
-  * 셀을 선택한 다음 툴바에서 `Play` 버튼을 누릅니다.
+  * 셀을 선택한 다음 툴바에서 `Play` 버튼을 누릅니다.
 * 배치모드: 순서대로 실행.
-  * `Cell` 메뉴 모음에 사용할 수 있는 몇 가지 옵션이 있습니다. 예를 들어, `Run All`을 통해 모든 셀을 모두 실행하거나, `Run All Below`을 통해 현재 셀 바로 아래 셀로 부터 가장 아래 마지막까지 계속 실행할 수 있습니다.
+  * `Cell` 메뉴 모음에 사용할 수 있는 몇 가지 옵션이 있습니다. 예를 들어, `Run All`을 통해 모든 셀을 모두 실행하거나, `Run All Below`을 통해 현재 셀 바로 아래 셀로 부터 가장 아래 마지막까지 계속 실행할 수 있습니다.
 
 ![](doc/source/images/powerai-notebook-run.png)
 
