@@ -1,5 +1,7 @@
 # Image recognition training with TensorFlow Inception and transfer learning
 
+*Read this in other languages: [한국어](README-ko.md).*
+
 Transfer learning is the process of taking a pre-trained model (the weights and parameters of a network that has been trained on a large dataset by somebody else) and “fine-tuning” the model with your own dataset. The idea is that this pre-trained model will act as a feature extractor. You will remove the last layer of the network and replace it with your own classifier (depending on what your problem space is). You then freeze the weights of all the other layers and train the network normally (Freezing the layers means not changing the weights during gradient descent/optimization).
 For this experiment we used Google's Inception-V3 pretrained model for Image Classification. This model consists of two parts:
 - Feature extraction part with a convolutional neural network.
