@@ -34,11 +34,11 @@ Follow these steps to setup and run this Code Pattern. The steps are
 described in detail below.
 
 1. [Get 24-hours of free access to the PowerAI platform](#1-get-24-hours-of-free-access-to-the-powerai-platform)
-4. [Access and start the Jupyter notebook](#4-access-and-start-the-jupyter-notebook)
-5. [Run the notebook](#5-run-the-notebook)
-6. [Analyze the results](#6-analyze-the-results)
-7. [Save and share](#7-save-and-share)
-8. [Shut down the PowerAI Notebooks job](#8-shut-down-the-powerai-notebooks-job)
+1. [Access and start the Jupyter notebook](#2-access-and-start-the-jupyter-notebook)
+1. [Run the notebook](#3-run-the-notebook)
+1. [Analyze the results](#4-analyze-the-results)
+1. [Save and share](#5-save-and-share)
+1. [Shut down the PowerAI Notebooks job](#6-shut-down-the-powerai-notebooks-job)
 
 ## 1. Get 24-hours of free access to the PowerAI platform
 
@@ -76,7 +76,7 @@ Summary of steps for starting the trial:
 
 * From your local browser, go to the following URL to get started: http://localhost:8888/tree/.
 
-## 4. Access and start the Jupyter notebook
+## 2. Access and start the Jupyter notebook
 
 Use git clone to download the example notebook, dataset, and retraining library with a single command.
 
@@ -96,7 +96,7 @@ git clone https://github.com/IBM/powerai-transfer-learning
 
 ![](doc/source/images/powerai-notebook-open.png)
 
-## 5. Run the notebook
+## 3. Run the notebook
 
 When a notebook is executed, what is actually happening is that each code cell in
 the notebook is executed, in order, from top to bottom.
@@ -120,7 +120,7 @@ There are several ways to execute the code cells in your notebook:
 
 ![](doc/source/images/powerai-notebook-run.png)
 
-## 6. Analyze the results
+## 4. Analyze the results
 
 When you run the "Main" code cell you can watch the training as the accuracy
 quickly improves. At the end, the final test accuracy is shown. We usually see
@@ -137,7 +137,7 @@ The results should go from no recognition ability at all to a pretty good
 success rate. You might find it interesting to try different images and see
 if you can identify why it has more difficulty classifying some images.
 
-## 7. Save and share
+## 5. Save and share
 
 ### How to save your work:
 
@@ -150,7 +150,7 @@ Under the `File` menu, there are options to:
 * `Print Preview` will allow you to print the current state of the
   notebook.
 
-## 8. Shut down the PowerAI Notebooks job
+## 6. Shut down the PowerAI Notebooks job
 
 When you are done with your work, please cancel your subscription by issuing the following command in your ssh session or by visiting the `Manage` link on the **My Products and Services** page.
 
