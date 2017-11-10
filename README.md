@@ -38,7 +38,7 @@ described in detail below.
 1. [Run the notebook](#3-run-the-notebook)
 1. [Analyze the results](#4-analyze-the-results)
 1. [Save and share](#5-save-and-share)
-1. [Shut down the PowerAI Notebooks job](#6-shut-down-the-powerai-notebooks-job)
+1. [End your trial](#6-end-your-trial)
 
 ## 1. Get 24-hours of free access to the PowerAI platform
 
@@ -150,7 +150,7 @@ Under the `File` menu, there are options to:
 * `Print Preview` will allow you to print the current state of the
   notebook.
 
-## 6. Shut down the PowerAI Notebooks job
+## 6. End your trial
 
 When you are done with your work, please cancel your subscription by issuing the following command in your ssh session or by visiting the `Manage` link on the **My Products and Services** page.
 
