@@ -9,6 +9,12 @@
 
 ![](doc/source/images/architecture.png)
 
+## 순서
+1. 개발자가 PowerAI 시스템에서 실행되는 노트북을 로드합니다.
+2. 제공된 예제 데이터 세트로 수영장이 딸린 주택과 그렇지 않은 주택의 사진 인식에 대해 시연합니다.
+3. 노트북은 이미 존재하는 모델을 활용하기 위해 TensorFlow Inception 모델과 재학습 예제를 사용하며 사용자 정의 분류기를 빌드합니다.
+4. 노트북은 원본 모델과 새로운 모델을 사용하여 결과를 비교합니다.
+
 ## 구성 요소
 
 * [IBM Power AI](https://www.ibm.com/ms-en/marketplace/deep-learning-platform): 가장 많이 사용되는 기계 학습 프레임 워크가 포함된 IBM Power Systems 기반 소프트웨어 플랫폼
@@ -28,16 +34,16 @@
 
 이 개발자 과정을 따라 하시려면 다음 단계를 따르십시오. 단계는 아래에서 자세히 설명합니다.
 
-1. [PowerAI 플랫폼에의 24시간 무료 Access받기](#1-powerai-플랫폼에의-24시간-무료-access받기)
+1. [PowerAI 플랫폼에 대한 24시간 무료 Access받기](#1-powerai-플랫폼에-대한-24시간-무료-access받기)
 1. [Jupyter 노트북 액세스 및 시작](#2-jupyter-노트북-액세스-및-시작)
 1. [노트북 실행](#3-노트북-실행)
 1. [결과 분석](#4-결과-분석)
 1. [저장 및 공유](#5-저장-및-공유)
 1. [Trial 계정 사용 종료](#6-trial-계정-사용-종료)
 
-## 1. PowerAI 플랫폼에의 24시간 무료 Access받기
+## 1. PowerAI 플랫폼에 대한 24시간 무료 Access받기
 
-IBM과 Nimbux의 파트너쉽으로 PowerAI 플랫폼에서의 24시간 무료 컴퓨팅 시간을 제공하는 평가판 계정이 이 과정을 따라하는 개발자 들에게 제공됩니다.
+IBM과 Nimbux의 파트너쉽으로 PowerAI 플랫폼에 대해 24시간 무료 컴퓨팅 시간을 제공하는 평가판 계정이 이 과정을 따라 하는 개발자들에게 제공됩니다.
 PowerAI Cognitive 코드 패턴 및 플래폼을 체험하기 위해 Nimbix에 등록하려면 다음 과정을 따르십시오.
 
 * [IBM 마켓플레이스 PowerAI 포탈](https://www.ibm.com/us-en/marketplace/deep-learning-platform)를 방문하여 `Request Trial`을 클릭하십시오.
@@ -54,7 +60,7 @@ PowerAI Cognitive 코드 패턴 및 플래폼을 체험하기 위해 Nimbix에 �
 
 ![](doc/source/images/launchtrialbutton.jpg)
 
-아래 화면처럼 **Welcome to IBM PowerAI Trial** 페이지는 Trial에 접근하기 위한 가이드를 제공합니다. 또는 귀하가 Trial을 시작할 수 있도록 유사한 가이드가 등록을 컨펌하는 이메일로 전달됩니다. 
+**Welcome to IBM PowerAI Trial** 페이지는 아래 화면처럼 Trial에 접근하기 위한 가이드를 제공합니다. 또는, Trial을 시작할 수 있도록 이와 비슷한 가이드가 등록 확정 이메일을 통해 전달됩니다 .
 
 ![](doc/source/images/welcomepage.jpg)
 
@@ -140,6 +146,26 @@ sudo poweroff --force
 # 문제 해결
 
 [See DEBUGGING.md.](DEBUGGING.md)
+
+# 링크
+
+* [Youtube 데모](https://www.youtube.com/watch?v=S3jdmKrERrE): 비디오를 확인하세요(영문).
+* [Cognitive discovery architecture](https://www.ibm.com/devops/method/content/architecture/cognitiveDiscoveryDomain2): 이 코드 패턴이 Cognitive discovery Reference Architecture에 얼마나 적합한지 확인해 보세요(영문).
+* [신규 카테고리에 대한 Inception의 마지막 레이어 재학습 시키기](https://www.tensorflow.org/tutorials/image_retraining): 이미지에 예제 스크립트를 실행하는 방법을 보여주는 튜토리얼입니다(영문).
+* [이미지 인식](https://www.tensorflow.org/tutorials/image_recognition): Python이나 C++로 Inception-v3 사용법과 이미지를 구별하는 방법을 알려주는 튜토리얼입니다(영문).
+* [TensorFlow를 사용하여 Android용 이미지 구별기 생성하기](https://medium.com/@daj/creating-an-image-classifier-on-android-using-tensorflow-part-1-513d9c10fa6a): TensorFlow를 사용한 이미지 구별에 관한 세 개의 시리즈 글입니다(영문).
+* [블로그](https://developer.ibm.com/dwblog/2017/command-line-tools-watson-visual-recognition/): Watson Visual Recognition에 대한 명령창 도구에 대해 학습합니다(영문).
+* [TensorFlow로 간단한 이미지 인식 시스템 빌드하기](http://www.wolfib.com/Image-Recognition-Intro-Part-1/): 이미지에 보이는 것을 인식하는 시스템 구성으로 머신 러닝을 시작합니다(영문).
+* [예제 코드](https://www.ibm.com/developerworks/java/library/cc-sample-code-image-classification-watson-node/index.html): Watson Visual Recognition 서비스를 이용하여 이미지의 물체 확인합니다(영문).
+
+
+# 자세히 보기
+
+* **인공 지능 코드 패턴**: 이 코드 패턴이 도움이 되셨다면 [AI 코드 패턴](https://developer.ibm.com/code/technologies/artificial-intelligence/)도 확인해 보세요 (영문)
+* **데이터 분석 코드 패턴**: 이 코드 패턴이 도움이 되셨다면 [데이터 분석 코드 패턴](https://developer.ibm.com/code/technologies/data-science/)도 확인해 보세요 (영문)
+* **AI 및 Data 코드 패턴 재생 리스트**: 코드 패턴에 대한 모든 비디오 [재생 리스트](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde)를 북마크 하세요 (영어)
+* **Data Science Experience**: IBM [Data Science Experience](https://datascience.ibm.com/)로 데이터 사이언스 기술을 익혀 해보세요 (영문)
+* **PowerAI**: 인공지능을 위한 엔터프라이즈 플랫폼 [IBM Power Systems](https://www.ibm.com/ms-en/marketplace/deep-learning-platform) 의 머신 러닝을 위한 소프트웨어 배포를 활용하여 앞서 나가세요 (영문)
 
 # 라이센스
 
