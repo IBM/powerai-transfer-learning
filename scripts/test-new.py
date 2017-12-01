@@ -11,7 +11,7 @@ tf.reset_default_graph()
 
 tf.logging.set_verbosity(tf.logging.ERROR)
 
-# Get the arguments list 
+# Get the arguments list
 cmdargs = str(sys.argv)
 
 # image_path = 'test_images/image-06-resized.jpeg'
@@ -26,13 +26,13 @@ try:
     im = Image.open(infile)
     im.thumbnail(size, Image.ANTIALIAS)
     old_im_size = im.size
-    
+
     ## By default, black colour would be used as the background for padding!
     new_im = Image.new("RGB", size)
 
     new_im.paste(im, ((size[0]-old_im_size[0])/2,
 	              (size[1]-old_im_size[1])/2))
-    
+
     new_im.save(outfile, "JPEG")
 except IOError:
     print "Cannot resize '%s'" % infile
@@ -43,7 +43,7 @@ except IOError:
 image_data = tf.gfile.FastGFile(outfile, 'rb').read()
 
 # Loads label file, strips off carriage return
-label_lines = [line.rstrip() for line 
+label_lines = [line.rstrip() for line
                    in tf.gfile.GFile("output_labels.txt")]
 
 # Unpersists graph from file
@@ -57,10 +57,10 @@ with tf.Session() as sess:
     sess.run(init_ops)
     # Feed the image_data as input to the graph and get first prediction
     softmax_tensor = sess.graph.get_tensor_by_name('final_result:0')
-    
+
     predictions = sess.run(softmax_tensor, \
              {'DecodeJpeg/contents:0': image_data})
-    
+
     label0 = label_lines[0]
     label1 = label_lines[1]
     score0 = predictions[0][0]
