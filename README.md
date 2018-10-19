@@ -51,7 +51,7 @@ IBM has partnered with Nimbix to provide cognitive developers a trial account th
 
 * Go [here](https://www.ibm.com/account/reg/us-en/login?formid=urx-19543) and follow the instructions to register for your free trial.
 
-* From your local browser, visit the following URL, https://\<IP Address>/tree where IP Address is the IP Address or host shown on the welcome page (or in the confirmation email).
+* From your local browser, visit the following URL, `https://<IP Address>` where IP Address is the IP Address or host shown on the welcome page (or in the confirmation email).
 
 * Login with the userid and password shown on the welcome page (or in the confirmation email).
 
