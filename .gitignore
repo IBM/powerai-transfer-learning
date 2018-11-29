@@ -102,3 +102,8 @@ ENV/
 
 # Ignore pycharm config
 .idea
+
+# VS Code
+.vscode
+.history
+
