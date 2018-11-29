@@ -51,31 +51,48 @@ IBM has partnered with Nimbix to provide cognitive developers a trial account th
 
 * Go [here](https://www.ibm.com/account/reg/us-en/login?formid=urx-19543) and follow the instructions to register for your free trial.
 
-* From your local browser, visit the following URL, `https://<IP Address>` where IP Address is the IP Address or host shown on the welcome page (or in the confirmation email).
+* Use the welcome page (or confirmation email) to determine when your container is "ACTIVE" and collect the following information:
+  * **IP Address** (might be fully qualified domain name)
+  * **User Id**
+  * **Password**
 
-* Login with the userid and password shown on the welcome page (or in the confirmation email).
+* Take the **IP Address** (FQDN) and use your local browser to go to `https://<IP Address>`.
+
+* Login with the **User Id** and **Password**.
 
   [![welcome](doc/source/images/welcomepage.png)](https://www.ibm.com/account/reg/us-en/login?formid=urx-19543)
 
 ## 2. Access and start the Jupyter notebook
 
-Use git clone to download the example notebook, dataset, and retraining library with a single command.
-
 * Get a new terminal window by clicking on the ```New``` pull-down and selecting ``Terminal``.
 
-  ![](doc/source/images/powerai-notebook-terminal.png)
+  ![powerai-notebook-terminal](doc/source/images/powerai-notebook-terminal.png)
 
-* Run the following command to clone the git repo:
+* When using the free trial, a 4-hour timeout will cause you to lose data that is not in the `/data` directory. Create a `patterns` directory under `/data` and a symbolic link for that directory under `/usr/local/samples/` as follows:
 
   ```commandline
+  mkdir /data/patterns
+  ln -s /data/patterns /usr/local/samples/patterns
+  ```
+
+* Use `git clone` to download the example notebook, dataset, and retraining library into `/data/patterns`:
+
+  ```commandline
+  cd /data/patterns
   git clone https://github.com/IBM/powerai-transfer-learning
   ```
 
-  ![](doc/source/images/powerai-notebook-clone.png)
+  ![powerai-notebook-clone](doc/source/images/powerai-notebook-clone.png)
 
-* Once done, you can exit the terminal and return to the notebook browser. Use the ``Files`` tab. From the root folder, click on ``powerai-transfer-learning`` then ``notebooks`` and then ``Classifying-House-And-Pool-Images.ipynb`` to open the notebook.
+* Once done, you can exit the terminal and return to the notebook browser. Use the `Files` tab. From the root folder, click on `patterns`, `powerai-transfer-learning`,  `notebooks`, and then `Classifying-House-And-Pool-Images.ipynb` to open the notebook.
 
   ![](doc/source/images/powerai-notebook-open.png)
+
+* If your container is paused (after 4 hours) and you resume it, your data will still be under `/data`. Recreate the symbolic link for it to show up in the Jupyter files tree.
+
+  ```commandline
+  ln -s /data/patterns /usr/local/samples/patterns
+  ```
 
 ## 3. Run the notebook
 
@@ -134,6 +151,10 @@ Under the `File` menu, there are options to:
 ## 6. End your trial
 
 When you are done with your work, please cancel your subscription by visiting the `Manage` link on the **My Products and Services** page.
+
+# Sample Output
+
+You can see a copy of the notebook including output [here](data/examples/Classifying-House-And-Pool-Images.ipynb)
 
 # Troubleshooting
 
