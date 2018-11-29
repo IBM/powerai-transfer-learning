@@ -154,7 +154,7 @@ When you are done with your work, please cancel your subscription by visiting th
 
 # Sample Output
 
-You can see a copy of the notebook including output [here](data/examples/Classifying-House-And-Pool-Images.ipynb)
+You can see a copy of the notebook including output [here](examples/Classifying-House-And-Pool-Images.ipynb)
 
 # Troubleshooting
 
