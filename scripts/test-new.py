@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+from __future__ import print_function
 import sys
 sys.path.insert(0, "/opt/DL/tensorflow/lib/python2.7/site-packages/")
 import os
@@ -35,7 +36,7 @@ try:
 
     new_im.save(outfile, "JPEG")
 except IOError:
-    print "Cannot resize '%s'" % infile
+    print("Cannot resize '%s'" % infile)
 
 
 
