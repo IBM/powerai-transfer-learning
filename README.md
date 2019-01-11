@@ -20,18 +20,18 @@ We will use this pre-trained model and re-train it it to classify houses with or
 
 ## Included components
 
-* [IBM Power AI](https://www.ibm.com/ms-en/marketplace/deep-learning-platform): A software platform that includes the most popular machine learning frameworks with IBM Power Systems.
-* [IBM Power Systems](https://www-03.ibm.com/systems/power/): IBM Power Systems is IBM's Power Architecture-based server line, built with open technologies and designed for mission-critical applications.
+* [IBM Power AI](https://www.ibm.com/us-en/marketplace/deep-learning-platform): A software platform that includes the most popular machine learning frameworks with IBM Power Systems.
+* [IBM Power Systems](https://www.ibm.com/it-infrastructure/power): IBM Power Systems is IBM's Power Architecture-based server line, built with open technologies and designed for mission-critical applications.
 * [Nimbix Cloud Computing Platform](https://www.nimbix.net/): An HPC & Cloud Supercomputing platform enabling engineers, scientists & developers, to build, compute, analyze, and scale simulations in the cloud
 
 ## Featured technologies
 
-* [Jupyter Notebooks](http://jupyter.org/): An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
+* [Jupyter Notebooks](https://jupyter.org/): An open-source web application that allows you to create and share documents that contain live code, equations, visualizations and explanatory text.
 * [Tensorflow](https://www.tensorflow.org/): An open source software library for numerical computation using data flow graphs.
 
 # Watch the Video
 
-[![](http://img.youtube.com/vi/S3jdmKrERrE/0.jpg)](https://www.youtube.com/watch?v=S3jdmKrERrE)
+[![](https://img.youtube.com/vi/S3jdmKrERrE/0.jpg)](https://www.youtube.com/watch?v=S3jdmKrERrE)
 
 # Steps
 
@@ -163,25 +163,25 @@ You can see a copy of the notebook including output [here](examples/Classifying-
 # Links
 
 * [Demo on Youtube](https://www.youtube.com/watch?v=S3jdmKrERrE): Watch the video.
-* [Cognitive discovery architecture](https://www.ibm.com/devops/method/content/architecture/cognitiveDiscoveryDomain2): Learn how this Code Pattern fits into the Cognitive discovery Reference Architecture.
-* [How to Retrain Inception’s Final Layer for New Categories](https://www.tensorflow.org/tutorials/image_retraining): Tutorial shows how to run example script on your images.
-* [Image Recognition](https://www.tensorflow.org/tutorials/image_recognition): Tutorial teaches how to use Inception-v3 and classify images in Python or C++.
+* [Cognitive discovery architecture](https://www.ibm.com/cloud/garage/architectures/cognitiveDiscoveryDomain): Learn how this Code Pattern fits into the Cognitive discovery Reference Architecture.
+* [How to Retrain Inception’s Final Layer for New Categories](https://www.tensorflow.org/hub/tutorials/image_retraining): Tutorial shows how to run example script on your images.
+* [Image Recognition](https://www.tensorflow.org/tutorials/images/image_recognition): Tutorial teaches how to use Inception-v3 and classify images in Python or C++.
 * [Creating an image classifier on Android using TensorFlow](https://medium.com/@daj/creating-an-image-classifier-on-android-using-tensorflow-part-1-513d9c10fa6a): Three-part series about using TensorFlow to classify images.
 * [Blog](https://developer.ibm.com/dwblog/2017/command-line-tools-watson-visual-recognition/): Learn about command-line tools for Watson Visual Recognition.
-* [How to Build a Simple Image Recognition System with TensorFlow](http://www.wolfib.com/Image-Recognition-Intro-Part-1/): Get started in machine learning by building a system to recognize what it sees in an image.
+* [How to Build a Simple Image Recognition System with TensorFlow](https://www.wolfib.com/Image-Recognition-Intro-Part-1/): Get started in machine learning by building a system to recognize what it sees in an image.
 * [Sample code](https://www.ibm.com/developerworks/java/library/cc-sample-code-image-classification-watson-node/index.html): Identify objects in an image with the Watson Visual Recognition service.
 
 
 # Learn more
 
-* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/code/technologies/artificial-intelligence/).
-* **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/code/technologies/data-science/)
+* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/technologies/artificial-intelligence/).
+* **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/technologies/data-science/)
 * **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
-* **Data Science Experience**: Master the art of data science with IBM's [Data Science Experience](https://datascience.ibm.com/)
-* **PowerAI**: Get started or get scaling, faster, with a software distribution for machine learning running on the Enterprise Platform for AI: [IBM Power Systems](https://www.ibm.com/ms-en/marketplace/deep-learning-platform)
+* **Data Science Experience**: Master the art of data science with IBM's [Data Science Experience](https://www.ibm.com/cloud/watson-studio)
+* **PowerAI**: Get started or get scaling, faster, with a software distribution for machine learning running on the Enterprise Platform for AI: [IBM Power Systems](https://www.ibm.com/us-en/marketplace/deep-learning-platform)
 
 # License
 
-This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
+This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-[Apache Software License (ASL) FAQ](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
+[Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
